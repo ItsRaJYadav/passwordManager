@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 
 const PasswordGenerator = () => {
   const [password, setPassword] = useState('');
-  const [passwordLength, setPasswordLength] = useState(8);
+  const [passwordLength, setPasswordLength] = useState(12);
   const [includeUppercase, setIncludeUppercase] = useState(true);
   const [includeLowercase, setIncludeLowercase] = useState(true);
   const [includeNumbers, setIncludeNumbers] = useState(true);
@@ -32,9 +32,9 @@ const PasswordGenerator = () => {
   const calculatePasswordStrength = (password) => {
     let strength = '';
 
-    if (password.length < 6) {
+    if (password.length < 12) {
       strength = 'Weak';
-    } else if (password.length < 10) {
+    } else if (password.length < 20) {
       strength = 'Moderate';
     } else {
       strength = 'Strong';
@@ -53,7 +53,7 @@ const PasswordGenerator = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center mt-14 ">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-4 text-center">Password Generator</h1>
 
@@ -161,6 +161,7 @@ const PasswordGenerator = () => {
           </div>
         )}
       </div>
+      
     </div>
   );
 };
